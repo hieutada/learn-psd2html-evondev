@@ -1,0 +1,272 @@
+.header {
+  min-height: 100rem;
+  background: linear-gradient(
+      to bottom,
+      rgba($primary-color, 0.8),
+      rgba($secondary-color, 0.8)
+    ),
+    url('../images/img-header-bg.jpg') no-repeat center / cover;
+  color: white;
+
+  &-logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  &-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &-menu-link {
+    // color: white;
+    text-transform: uppercase;
+    display: inline-block;
+    // padding-bottom: 1rem;
+    // border-bottom: 4px solid transparent;
+    transition: all 0.25s linear;
+  }
+
+  &-menu-icon {
+    color: white;
+  }
+
+  &-top {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &-menu {
+    display: flex;
+  }
+
+  &-content {
+    padding-top: 17rem;
+    text-align: center;
+    max-width: 90rem;
+    margin: 0 auto;
+
+    &-caption {
+      font-size: 7.2rem;
+      font-family: $third-font;
+      margin-bottom: 3rem;
+    }
+
+    &-main {
+      font-size: 15rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding-bottom: 5rem;
+      margin-bottom: 5rem;
+      position: relative;
+
+      &::after {
+        content: '';
+        @include absoluteCenter('x');
+        bottom: 0;
+        width: 6rem;
+        height: 0.5rem;
+        background-color: white;
+      }
+    }
+
+    &-more {
+      text-transform: uppercase;
+      color: white;
+      padding: 1rem 3rem;
+      border: 4px solid white;
+      font-weight: bold;
+      display: inline-block;
+    }
+  }
+
+  &-bottom {
+    margin-top: 15.5rem;
+    margin-left: -3rem;
+    padding-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item {
+      padding-top: 2.5rem;
+      border-top: 0.5rem solid white;
+      width: calc(25% - 3rem);
+      // flex: 1;
+      margin-left: 3rem;
+      opacity: 0.6;
+      position: relative;
+      cursor: pointer;
+
+      // &:first-child {
+      //   margin-left: 0;
+      // }
+
+      &::before {
+        content: '';
+        @include size(30%, 0.5rem);
+        background-color: $primary-color;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.2s linear;
+      }
+
+      &:hover,
+      &--active {
+        opacity: 1;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-number {
+      font-weight: bold;
+      font-size: 2.4rem;
+    }
+
+    &-text {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      margin-left: 10px;
+    }
+  }
+}
+
+@include minWidth(768px) {
+
+  .header-menu {
+
+    &-item:not(:first-child) {
+      margin-left: 5rem;
+    }
+  
+    &-link {
+      color: white;
+      display: inline-block;
+      padding-bottom: 1rem;
+      border-bottom: 4px solid transparent;
+  
+      &:hover {
+        color: $secondary-color;
+        border-bottom-color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Tablet
+@include maxWidth(1023px) {
+  .header {
+    min-height: unset;
+
+    &-bottom {
+      margin-top: 10.5rem;
+    }
+
+    &-content {
+      padding-top: 10rem;
+    }
+
+    &-content-main {
+      font-size: 10rem;
+    }
+  }
+}
+
+// Mobile
+@include maxWidth(767px) {
+
+  .header {
+
+    &-toggle {
+      display: inline-block;
+      align-self: center;
+    }
+
+    &-bottom {
+      margin-top: 5.5rem;
+
+      &-text {
+        display: none;
+      }
+
+      &-item {
+        text-align: center;
+        padding: 1.5rem;
+    
+        // &::before {
+        //   width: 35%;
+        // }
+      }
+    }
+
+    &-content {
+      padding-top: 5rem;
+
+      &-caption {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      &-main {
+        font-size: 5rem;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    &-menu {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: white;
+      width: 30rem;
+      display: block;
+      padding: 2rem 2.5rem;
+      z-index: 10;
+      transform: translateX(100%);
+      transition: transform .25s ease-in;
+
+      &--expand {
+        transform: translateX(0);
+      }
+  
+      &-item {
+        margin-bottom: 1rem;
+      }
+
+      &-icon {
+        display: block;
+        color: $title-color;
+        padding: 1.5rem;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      &-link {
+        color: $title-color;
+        width: 100%;
+        padding: 1.5rem;
+        border-radius: 0.4rem;
+  
+        &:hover {
+          color: white;
+          background-color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  
+  
+}

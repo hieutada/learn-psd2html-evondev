@@ -1,0 +1,134 @@
+.quote {
+  background-color: $gray-color;
+  padding: 6.5rem 0;
+
+  // &-wrapper {
+  //   @include flexbox(center, space-between, $wrap: wrap);
+  // }
+
+  // &-arrow {
+  //   font-size: 3rem;
+  //   color: $gray-dark-color;
+  //   cursor: pointer;
+  //   padding: 1rem 2rem;
+  // }
+
+  &-item {
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
+    outline: none;
+    @include flexbox(center);
+  }
+
+  &-icon {
+    @include size(15rem);
+    @include flexbox(center, center);
+    border: 3px solid $third-color;
+    flex-shrink: 0;
+    margin-right: 6rem;
+  }
+
+  &-image {
+    @include size(22rem);
+    flex-shrink: 0;
+    overflow: hidden;
+    margin-right: 3rem;
+    border-radius: 50%;
+
+    img {
+      @include size(100%);
+      object-fit: cover;
+    }
+  }
+
+  &-desc {
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1.6;
+    font-family: $secondary-font;
+    font-style: italic;
+    color: $text-color;
+    margin-bottom: 2.5rem;
+    @include textClamp(3);
+  }
+
+  &-author {
+    font-family: $third-font;
+    font-size: 2.4rem;
+    position: relative;
+    padding-left: 7rem;
+
+    &::before {
+      content: '';
+      @include absoluteCenter('y');
+      left: 0;
+      @include size(6rem, 0.4rem);
+      background-color: $primary-color;
+    }
+  }
+
+  @include maxWidth(767px) {
+    padding: 5rem 0;
+
+    &-icon {
+      @include size(10rem);
+      img {
+        max-width: 50%;
+      }
+    }
+
+    &-item {
+      padding: 0;
+      flex-direction: column;
+    }
+
+    &-icon,
+    &-image {
+      margin-right: 0;
+    }
+
+    &-info {
+      // padding-left: 0;
+      margin-top: 3rem;
+    }
+
+    &-desc {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &-author {
+      font-size: 2rem;
+    }
+  }
+}
+
+.slick-initialized .slick-slide {
+  display: flex;
+}
+.slick-arrow {
+  background-color: transparent;
+  font-size: 3rem;
+  color: $gray-dark-color;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  @include absoluteCenter(y);
+  z-index: 10;
+}
+.slick-prev {
+  left: 0;
+}
+.slick-next {
+  right: 0;
+}
+
+.testimonial {
+  padding: 0;
+  margin-bottom: 13rem;
+  background-color: white;
+
+  @include maxWidth(767px) {
+    margin-bottom: 5rem;
+  }
+}

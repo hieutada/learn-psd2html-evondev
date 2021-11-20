@@ -1,0 +1,32 @@
+section.team
+	.container 
+		+blockBox(
+			'Who we are',
+			'Meet our team',
+			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel commodi animi praesentium architecto dolor dolorem, officia eaque cum mollitia! Rerum eveniet nostrum numquam at repudiandae ad voluptatem, voluptatum itaque soluta!'
+		)
+		.team-list
+			+teamItem('./images/img-team1.png', 'Matthew Dix', 'Graphic Design')
+				+teamSocial(
+					'https://www.facebook.com/hieupisce',
+					'https://www.instagram.com/hieupisce',
+					'https://www.pinterest.com/hieupisce',
+					'https://www.pinterest.com/hieupisce'
+				)
+			+teamItem('./images/img-team2.png', 'Christopher Cambell', 'Branding/UX design')
+				+teamSocial(
+					'https://www.facebook.com/hieupisce',
+					'https://www.instagram.com/hieupisce',
+					'https://www.pinterest.com/hieupisce',
+					'https://www.pinterest.com/hieupisce'
+				)
+			+teamItem('./images/img-team3.png', 'Michael Fertig', 'Developer')
+				+teamSocial(
+					'https://www.facebook.com/hieupisce',
+					'https://www.instagram.com/hieupisce',
+					'https://www.pinterest.com/hieupisce',
+					'https://www.pinterest.com/hieupisce'
+				)
+section.brand
+	.container 
+		img(src='./images/img-logos.png', alt='brands')

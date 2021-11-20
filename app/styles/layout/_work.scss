@@ -1,0 +1,134 @@
+.work {
+  padding: 10rem 0;
+  --worklist-height: 78rem;
+
+  &-list {
+    @include flexbox;
+    height: var(--worklist-height);
+  }
+
+  &-column {
+    width: 25%;
+  }
+
+  &-item {
+    height: 50%;
+
+    &--full {
+      height: 100%;
+    }
+  }
+
+  &-image {
+    @include size(100%);
+    object-fit: cover;
+  }
+
+  &-content {
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  &-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  &-title {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    @include textClamp;
+  }
+
+  &-desc {
+    color: white;
+    @include textClamp(2);
+  }
+
+  @include maxWidth(1600px) {
+    --worklist-height: 60rem;
+  }
+
+  @include maxWidth(1023px) {
+    --worklist-height: 40rem;
+  }
+
+  @include maxWidth(812px) {
+    &-list {
+      flex-wrap: wrap;
+      --worklist-height: auto;
+    }
+
+    &-column {
+      width: 50%;
+    }
+  }
+
+  @include maxWidth(767px) {
+    padding: 5rem 0;
+    &-column {
+      width: 100%;
+    }
+  }
+}
+
+// css grid
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 30rem 30rem;
+  grid-template-areas:
+  "h1 h3 h5 h6"
+  "h2 h4 h5 h7";
+
+
+  @include maxWidth(1023px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 25vh);
+    grid-template-areas:
+    "h1 h3"
+    "h2 h4"
+    "h5 h6"
+    "h5 h7";
+  }
+
+  // @include maxWidth(767px) {
+  //   grid-template-columns: repeat(2, 1fr);
+  //   grid-template-rows: repeat(4, 25vh);
+  // }
+
+  .work-item {
+    height: 100%;
+
+    &:first-child {
+      grid-area: h1;
+    }
+
+    &:last-child {
+      grid-area: h7;
+    }
+
+    &:nth-child(2) {
+      grid-area: h2;
+    }
+
+    &:nth-child(3) {
+      grid-area: h3;
+    }
+
+    &:nth-child(4) {
+      grid-area: h4;
+    }
+
+    &:nth-child(5) {
+      grid-area: h5;
+    }
+
+    &:nth-child(6) {
+      grid-area: h6;
+    }
+  }
+}
+
+@include hoverEffect('.work-item', '.work-content', 'false');
